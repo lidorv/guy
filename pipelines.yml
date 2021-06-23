@@ -1,5 +1,5 @@
 resources:
-  - name: git-resource
+  - name: gitResource
     type: GitRepo
     configuration:
       path: lidorv/guy
@@ -36,7 +36,7 @@ pipelines:
           integrations:
             - name: Artifactory_4
           inputResources:
-            - name: git-resource
+            - name: gitResource
         execution:
           onFailure:
             - export JFROG_BUILD_STATUS=FAIL
@@ -47,7 +47,7 @@ pipelines:
         type: PublishBuildInfo
         configuration:
           inputResources:
-            - name: git-resource
+            - name: gitResource
           outputResources:
             - name: build-info-resource
           inputSteps:
@@ -55,4 +55,4 @@ pipelines:
           forceXrayScan: true
         execution:
           onComplete:
-            - update_commit_status git-resource
+            - update_commit_status gitResource
