@@ -8,7 +8,7 @@ resources:
         pullRequestCreate: true
       branches:
         include: master
-  - name: build-info-resource
+  - name: buildInfoResource
     type: BuildInfo
     configuration:
       sourceArtifactory: Artifactory_4
@@ -49,7 +49,7 @@ pipelines:
           inputResources:
             - name: gitResource
           outputResources:
-            - name: build-info-resource
+            - name: buildInfoResource
           inputSteps:
             - name: Build
           forceXrayScan: true
